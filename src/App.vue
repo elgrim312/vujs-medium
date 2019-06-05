@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+      <Navigation></Navigation>
       <!-- eslint-disable-next-line vue/max-attributes-per-line -->
       <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>
         Logout
@@ -12,8 +13,12 @@
 
 <script>
 import { userService } from './_services/user.service';
+import Navigation from './components/navigation/Navigation';
 export default {
   name: 'App',
+  components: {
+    'Navigation': Navigation
+  },
   data() {
     return {
       authenticated: false,

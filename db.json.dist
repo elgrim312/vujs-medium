@@ -1,0 +1,10 @@
+{
+  "articles": [
+    { "id": 1, "title": "json-server", "author": "typicode", "body": "text", "date": "20/01/19", "description": "desc" },
+    { "id": 2, "title": "json-server-2", "author": "typicode 2", "body": "text 2", "date": "20/01/19", "description": "desc" }
+  ],
+  "users": [
+    { "id": 1, "name": "some comment", "email": "test@test.com", "password": "flkjdlf", "date": "20/01/19"},
+    { "id": 1, "name": "some comment", "email": "test@test.com", "password": "flkjdlf", "date": "20/01/19"}
+  ]
+}

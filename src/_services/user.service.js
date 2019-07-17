@@ -1,6 +1,7 @@
 export const userService = {
   login,
   logout,
+  register
 };
 
 async function login(username, pwd) {
@@ -19,6 +20,23 @@ async function login(username, pwd) {
         localStorage.setItem('user', JSON.stringify(user));
       }
 
+      return user;
+    });
+}
+
+async function register(email, name, pwd) {
+  return fetch(`http://localhost:3000/register`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: email,
+      name: name,
+      password: pwd,
+    }),
+  }).then(handleResponse)
+    .then((user) => {
       return user;
     });
 }

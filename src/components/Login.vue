@@ -25,15 +25,15 @@ export default {
     async login() {
       if (this.input.email !== '' && this.input.password !== '') {
         const user = await userService.login(this.input.email, this.input.password);
-
+        console.log(user.auth_token)
         if (user.auth_token) {
           this.$emit('authenticated', true);
           this.$router.push('home')
         }else {
           this.msg_error = "Email ou mot de passe invalide"
         }
-        /*        this.$emit('authenticated', true);
-        this.$router.replace({ name: 'secure' }); */
+        this.$emit('authenticated', true);
+        this.$router.replace({ name: 'home' });
       }
     },
   },

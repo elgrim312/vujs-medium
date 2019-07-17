@@ -1,22 +1,17 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '../components/Login';
-import HelloWorld from '../components/HelloWorld';
 import Register from '../components/Register';
 import Home from '../components/Home';
 
 Vue.use(Router);
+Vue.use(require('vue-moment'));
 
 export const router = new Router({
   routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HelloWorld,
-    },
-    {
+   {
       path: '/home',
-      name: 'homepage',
+      name: 'home',
       component: Home
     },
     {

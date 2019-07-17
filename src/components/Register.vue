@@ -11,13 +11,18 @@
     </div>
 
     <div class="input__container">
+      <label for="text">Name*</label>
+      <input type="text" id="name" placeholder="text" v-model="input.name">
+    </div>
+
+    <div class="input__container">
       <label for="password">Mot de passe*</label>
-      <input type="email" id="password" placeholder="email" v-model="input.password">
+      <input type="password" id="password" placeholder="password" v-model="input.password">
     </div>
 
     <div class="input__container">
       <label for="repeat__password">Confirmation mot de passe*</label>
-      <input type="email" id="repeat__password" placeholder="email" v-model="input.repeat_password">
+      <input type="password" id="repeat__password" placeholder="password" v-model="input.repeat_password">
     </div>
 
     <div class="submit__container">
@@ -27,6 +32,7 @@
 </template>
 
 <script>
+import { userService } from '../_services/user.service';
   export default {
     name: 'Register',
     data() {
@@ -42,7 +48,7 @@
     methods: {
       checkForm: function (e) {
         if (this.input.email && this.input.password && this.input.repeat_password) {
-          return true;
+          this.register()
         }
 
         this.errors = [];
@@ -60,8 +66,13 @@
         }
 
         e.preventDefault()
-      }
-    }
+      },
+
+      async register() {
+          userService.register(this.input.email, this.input.name, this.input.password)
+          this.$router.replace({ name: 'secure' });
+        }
+      },
   };
 </script>
 

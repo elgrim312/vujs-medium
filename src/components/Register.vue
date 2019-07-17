@@ -70,7 +70,7 @@ import { userService } from '../_services/user.service';
 
       async register() {
           userService.register(this.input.email, this.input.name, this.input.password)
-          this.$router.replace({ name: 'secure' });
+          this.$router.replace({ name: 'login' });
         }
       },
   };

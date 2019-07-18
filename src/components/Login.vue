@@ -3,7 +3,7 @@
     <div class="error-msg">{{ msg_error}}</div>
     <input type="text" name="email" v-model="input.email" placeholder="Email">
     <input type="password" name="password" v-model="input.password" placeholder="password">
-    <button type="button" v-on:click="login()">Sign in !</button>
+    <button type="button" v-on:click="login()">Sign in !!</button>
   </div>
 </template>
 

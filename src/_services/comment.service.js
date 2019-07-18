@@ -7,12 +7,15 @@ export const commentService = {
 
 async function fetchComments(articleId) {
   let user = JSON.parse(localStorage.getItem('user'))
-  return fetch("http://localhost:3000/articles/"+articleId+"/comment", {
-    method: 'GET',
+  return fetch("http://localhost:3000/article/comment", {
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': user.auth_token
     },
+    body: JSON.stringify({
+      article_id: articleId
+    })
   }).then(handleResponse)
     .then((comments) => {
       return comments;
